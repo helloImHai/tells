@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   tellPaper: {
     borderRadius: 10,
-    padding: "15px 10px 10px 30px",
+    padding: "15px 30px 10px 30px",
   },
   tellBox: {},
   time: {
