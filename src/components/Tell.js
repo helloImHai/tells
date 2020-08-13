@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   tellPaper: {
     borderRadius: 10,
-    padding: "15px 30px 10px 30px",
+    padding: "20px 30px 15px 30px",
   },
   tellBox: {},
   time: {
@@ -23,8 +23,8 @@ export const Tell = (props) => {
         <Typography className={classes.time} variant="caption">
           {moment(props.tell.date_answered).fromNow()}
         </Typography>
-        <br />
-        <br />
+        <hr style={{ border: "1px solid rgb(246, 2, 87, 0.9)" }} />
+        <Box m={2} />
         <Typography>{props.tell.answer}</Typography>
       </Box>
     </Paper>
