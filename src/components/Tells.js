@@ -8,7 +8,7 @@ export const Tells = (props) => {
 
   return (
     <div>
-      {props.vid != 0 ? (
+      {props.vid !== 0 ? (
         <div>
           <Grid container direction="column" spacing={3}>
             {tells.map((tell, key) => (

@@ -26,8 +26,6 @@ const useStyles = makeStyles({
   },
 });
 
-const ITEM = "hfakhfdarweoDKFHSF";
-
 export const IndexView = () => {
   const classes = useStyles();
   const visitor = useHandleVisitorsLogic();

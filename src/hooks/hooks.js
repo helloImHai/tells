@@ -36,25 +36,28 @@ export function useGetLiked(tellId, visitorId) {
           total: parseInt(res.data.total),
         });
       });
-  }, [url]);
+  }, [url, tellId, visitorId]);
   return [liked, setLiked];
 }
 
 export function useHandleVisitorsLogic() {
   const url = `${process.env.REACT_APP_API_URL}/visitors`;
   const [visitor, setVisitor] = useState({ visitors: 0, vid: 0 });
-  const vid = localStorage.getItem(ITEM);
+  const vid = parseInt(localStorage.getItem(ITEM));
   useEffect(() => {
-    if (vid != null) {
+    if (!isNaN(vid)) {
       axios
         .get(url)
-        .then((res) => setVisitor({ visitors: res.data.count, vid: vid }));
+        .then((res) =>
+          setVisitor({ visitors: parseInt(res.data.count), vid: vid })
+        );
     } else {
       axios.post(url).then((res) => {
-        setVisitor({ visitors: res.data.vid, vid: res.data.vid });
-        localStorage.setItem(ITEM, res.data.vid);
+        const newVid = parseInt(res.data.vid);
+        setVisitor({ visitors: newVid, vid: newVid });
+        localStorage.setItem(ITEM, newVid);
       });
     }
-  }, [url]);
+  }, [url, vid]);
   return visitor;
 }

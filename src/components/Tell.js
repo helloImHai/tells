@@ -6,8 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { FavoriteBorder, Favorite } from "@material-ui/icons";
 import { useGetLiked } from "../hooks/hooks";
 
-const ITEM = "hfakhfdarweoDKFHSF";
-
 const useStyles = makeStyles({
   tellPaper: {
     borderRadius: 10,
@@ -25,7 +23,7 @@ export const Tell = (props) => {
   const classes = useStyles();
   let [liked, setLiked] = useGetLiked(tid, vid);
   const handleHeartClick = () => {
-    if (liked.liked == 1) {
+    if (liked.liked === 1) {
       return asyncUnlike(tid, vid);
     }
     return asyncLike(tid, vid);
@@ -73,7 +71,7 @@ export const Tell = (props) => {
             <Typography>{liked.total}</Typography>
             <Box m={0}></Box>
             <IconButton onClick={handleHeartClick}>
-              {liked.liked == 1 ? <Favorite /> : <FavoriteBorder />}
+              {liked.liked === 1 ? <Favorite /> : <FavoriteBorder />}
             </IconButton>
           </Box>
         </Box>
