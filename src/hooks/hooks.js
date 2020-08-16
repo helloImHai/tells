@@ -18,6 +18,28 @@ export function useGetTells() {
   return tells;
 }
 
+export function useGetLiked(tellId, visitorId) {
+  const url = `${process.env.REACT_APP_API_URL}/likes/liked`;
+  const [liked, setLiked] = useState({ total: 0, liked: 0 });
+
+  useEffect(() => {
+    axios
+      .get(url, {
+        params: {
+          tellId: tellId,
+          visitorId: visitorId,
+        },
+      })
+      .then((res, err) => {
+        setLiked({
+          liked: parseInt(res.data.liked),
+          total: parseInt(res.data.total),
+        });
+      });
+  }, [url]);
+  return [liked, setLiked];
+}
+
 export function useHandleVisitorsLogic() {
   const url = `${process.env.REACT_APP_API_URL}/visitors`;
   const [id, setId] = useState(0);
