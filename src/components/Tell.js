@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 });
 
 export const Tell = (props) => {
-  const vid = parseInt(localStorage.getItem(ITEM));
+  const vid = props.vid;
   const { tid, question, date_answered, answer } = props.tell;
   const classes = useStyles();
   let [liked, setLiked] = useGetLiked(tid, vid);

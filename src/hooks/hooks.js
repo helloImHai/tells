@@ -42,17 +42,19 @@ export function useGetLiked(tellId, visitorId) {
 
 export function useHandleVisitorsLogic() {
   const url = `${process.env.REACT_APP_API_URL}/visitors`;
-  const [id, setId] = useState(0);
-
+  const [visitor, setVisitor] = useState({ visitors: 0, vid: 0 });
+  const vid = localStorage.getItem(ITEM);
   useEffect(() => {
-    if (localStorage.getItem(ITEM) != null) {
-      axios.get(url).then((res) => setId(res.data.count));
+    if (vid != null) {
+      axios
+        .get(url)
+        .then((res) => setVisitor({ visitors: res.data.count, vid: vid }));
     } else {
       axios.post(url).then((res) => {
-        setId(res.data.vid);
-        localStorage.setItem(ITEM, id);
+        setVisitor({ visitors: res.data.vid, vid: res.data.vid });
+        localStorage.setItem(ITEM, res.data.vid);
       });
     }
   }, [url]);
-  return id;
+  return visitor;
 }

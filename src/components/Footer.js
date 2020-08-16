@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Grid, IconButton, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Facebook, Instagram, LinkedIn } from "@material-ui/icons";
-import { useGetTells, useHandleVisitorsLogic } from "../hooks/hooks";
+import { useGetTells } from "../hooks/hooks";
 
 const useStyles = makeStyles({
   invisisbleBackground: {
@@ -11,9 +11,9 @@ const useStyles = makeStyles({
   },
 });
 
-export const Footer = () => {
+export const Footer = (props) => {
   const tells = useGetTells();
-  const visitors = useHandleVisitorsLogic();
+  const visitors = props.visitors;
   return (
     <Paper className={useStyles().invisisbleBackground} elevation={0}>
       <Grid container>

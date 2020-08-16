@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core/styles";
 import { Introduction } from "../components/Introduction";
 import { Footer } from "../components/Footer";
+import { useHandleVisitorsLogic } from "../hooks/hooks";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -25,8 +26,11 @@ const useStyles = makeStyles({
   },
 });
 
+const ITEM = "hfakhfdarweoDKFHSF";
+
 export const IndexView = () => {
   const classes = useStyles();
+  const visitor = useHandleVisitorsLogic();
   return (
     <ThemeProvider theme={darkTheme}>
       <Box className={classes.indexBox} bgcolor="background.default">
@@ -39,11 +43,11 @@ export const IndexView = () => {
                 <Question spacing={3} />
                 <br />
                 <br />
-                <Tells />
+                <Tells vid={visitor.vid} />
               </div>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Footer />
+              <Footer visitors={visitor.visitors} />
             </Grid>
           </Grid>
         </Container>
