@@ -40,7 +40,8 @@ export const Tell = (props) => {
           visitorId: vid,
         },
       })
-      .then((res) => setLiked({ liked: 0, total: liked.total - 1 }));
+      .then((res) => setLiked({ liked: 0, total: liked.total - 1 }))
+      .catch((err) => alert("Data not synced, please refresh"));
   }
 
   function asyncLike(tid, vid) {
@@ -50,7 +51,8 @@ export const Tell = (props) => {
         tellId: tid,
         visitorId: vid,
       })
-      .then((res) => setLiked({ liked: 1, total: liked.total + 1 }));
+      .then((res) => setLiked({ liked: 1, total: liked.total + 1 }))
+      .catch((err) => alert("Data not synced, please refresh"));
   }
   return (
     <Paper elevation={1} className={classes.tellPaper}>
