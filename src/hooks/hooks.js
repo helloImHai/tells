@@ -19,7 +19,6 @@ export function useGetTells() {
 }
 
 export function useGetLiked(tellId, visitorId) {
-  console.log("tell", tellId, "vid", visitorId);
   const url = `${process.env.REACT_APP_API_URL}/likes/liked`;
   const [liked, setLiked] = useState({ total: 0, liked: 0 });
 
@@ -42,7 +41,6 @@ export function useGetLiked(tellId, visitorId) {
 }
 
 export function useHandleVisitorsLogic() {
-  console.log("hello");
   const url = `${process.env.REACT_APP_API_URL}/visitors`;
   const [visitor, setVisitor] = useState({ visitors: 0, vid: 0 });
   const vid = parseInt(localStorage.getItem(ITEM));

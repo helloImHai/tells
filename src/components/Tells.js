@@ -4,7 +4,6 @@ import { Box, LinearProgress, Grid } from "@material-ui/core";
 import { useGetTells } from "../hooks/hooks";
 
 export const Tells = (props) => {
-  console.log(props);
   let tells = useGetTells();
 
   return (

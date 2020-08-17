@@ -56,7 +56,7 @@ export const Question = () => {
     axios
       .post(url, { question: question.questionText })
       .then((res) =>
-        alert(`Question submitted, I'll get back to you about in a while!`)
+        alert(`Question submitted, I'll get back to you in a while!`)
       )
       .catch((err) =>
         alert(
