@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     paddingRight: "10px",
   },
   profilePic: {
-    marginTop: "20px",
+    marginTop: "30px",
     height: "110px",
     borderRadius: "55px",
     borderColor: { main: "#550000" },
